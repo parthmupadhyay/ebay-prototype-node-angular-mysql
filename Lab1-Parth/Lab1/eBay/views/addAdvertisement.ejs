@@ -1,0 +1,92 @@
+<html ng-app="addAdvertApp">
+    <head><link href='http://fonts.googleapis.com/css?family=Roboto:500,300,700,400italic,400' rel='stylesheet' type='text/css'>
+    <!-- <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'> -->
+    <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'> -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="stylesheets/bootstrap.css">
+    <link rel="stylesheet" href="stylesheets/font-awesome.css">
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/mystyles.css">
+        <script src="/javascripts/angular.min.js"></script>
+        <script src="/angular/addAdvertise.js"></script>
+    </head>
+<body ng-controller="addAdvertCtrl"  >
+<div ng-include="'header/header.ejs'"></div>
+<div class="gap"></div>
+<div class="col-sm-3"></div>
+
+<div class="col-sm-6 product" style="background-color: #f8f8f8">
+
+            
+
+        <div class="container">
+          
+          <div><h2 class="widget-title-lg">Enter your advertisement details:</h2></div>
+            <div class="gap gap-small"></div>
+           
+            <div class="row" data-gutter="60">
+                <div class="col-md-5">
+                   
+                    <form action="/addAdvertise" method="post">
+                       
+                        <div class="form-group">
+                            <label>Product Name</label>
+                            <input type="text" class="form-control" id="productName" name="productName" placeholder="Product name.." required="true" />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Bidding : </label>
+                            <input type="checkbox" onclick="activateBidding();" id="bidding" name="bidding"  />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea class="form-control" id="description" name="description" required="true"></textarea>
+                         </div>
+
+                        <div class="form-group">
+                            <label id="lbprice">Price</label>
+                            <input type="text" class="form-control" id="price" name="price" id="text" placeholder="Price.." required="true">
+                        </div>
+
+
+                        <div class="form-group">
+                            <label>Quantity</label>
+                             <input type="number" id="quantity" name="quantity"  class="form-control" min="1">
+                        </div>
+
+
+
+
+
+
+                      <input class="btn btn-primary" type="submit" value="Submit" />
+                    </form>
+                </div>
+
+
+            </div>
+        </div>
+      
+    </div>
+
+<script>
+    function activateBidding()
+    {
+        if(document.getElementById("bidding").checked) {
+            document.getElementById("lbprice").innerHTML = "Base Price";
+            document.getElementById("quantity").value = 1;
+            document.getElementById("quantity").readOnly = true;
+        }
+        else
+        {
+            document.getElementById("lbprice").innerHTML = "Price";
+            document.getElementById("quantity").value = 1;
+            document.getElementById("quantity").readOnly = false;
+        }
+    }
+</script>
+
+</body>
+
+</html>

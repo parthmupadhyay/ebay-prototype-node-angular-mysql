@@ -1,0 +1,27 @@
+{"level":"info","message":"26:Sign in successful by :parthu","timestamp":"2016-10-17T04:51:57.801Z"}
+{"level":"info","message":"redirecting user to products page","timestamp":"2016-10-17T04:51:58.605Z"}
+{"level":"info","message":"26:added new advertise for selling","timestamp":"2016-10-17T04:52:41.500Z"}
+{"level":"info","message":"26:productname=Moto G4 plus ,Quantity=1, Price=300","timestamp":"2016-10-17T04:52:41.501Z"}
+{"level":"info","message":"26:loading user advertisement","timestamp":"2016-10-17T04:52:42.133Z"}
+{"level":"info","message":"28:Sign in successful by :shrey","timestamp":"2016-10-17T04:53:13.833Z"}
+{"level":"info","message":"redirecting user to products page","timestamp":"2016-10-17T04:53:14.254Z"}
+{"level":"info","message":"User click on product :Moto G4 plus","timestamp":"2016-10-17T04:53:16.221Z"}
+{"level":"info","message":"Loading product details of Moto G4 plus","timestamp":"2016-10-17T04:53:16.221Z"}
+{"level":"info","message":"28:undefined bidded 320 for product=36","timestamp":"2016-10-17T04:53:24.787Z"}
+{"level":"info","message":"Current price for product=36 changed to 320","timestamp":"2016-10-17T04:53:24.872Z"}
+{"level":"info","message":"redirecting user to products page","timestamp":"2016-10-17T04:53:26.935Z"}
+{"level":"info","message":"29:Sign in successful by :karan","timestamp":"2016-10-17T04:53:35.305Z"}
+{"level":"info","message":"redirecting user to products page","timestamp":"2016-10-17T04:53:35.723Z"}
+{"level":"info","message":"User click on product :Moto G4 plus","timestamp":"2016-10-17T04:53:36.844Z"}
+{"level":"info","message":"Loading product details of Moto G4 plus","timestamp":"2016-10-17T04:53:36.844Z"}
+{"level":"info","message":"29: bidded 330 for product=36","timestamp":"2016-10-17T04:53:44.963Z"}
+{"level":"info","message":"Current price for product=36 changed to 330","timestamp":"2016-10-17T04:53:45.222Z"}
+{"level":"info","message":"redirecting user to products page","timestamp":"2016-10-17T04:53:47.235Z"}
+{"level":"info","message":"failed signin attempt for user :maitrey","timestamp":"2016-10-17T04:54:37.866Z"}
+{"level":"info","message":"failed signin attempt for user :maitrays","timestamp":"2016-10-17T04:54:43.421Z"}
+{"level":"info","message":"28:Sign in successful by :shrey","timestamp":"2016-10-17T04:54:51.508Z"}
+{"level":"info","message":"redirecting user to products page","timestamp":"2016-10-17T04:54:51.942Z"}
+{"level":"info","message":"User click on product :Moto G4 plus","timestamp":"2016-10-17T04:54:53.006Z"}
+{"level":"info","message":"Loading product details of Moto G4 plus","timestamp":"2016-10-17T04:54:53.007Z"}
+{"level":"info","message":"28: bidded 350 for product=36","timestamp":"2016-10-17T04:55:00.102Z"}
+{"level":"info","message":"Current price for product=36 changed to 350","timestamp":"2016-10-17T04:55:00.141Z"}

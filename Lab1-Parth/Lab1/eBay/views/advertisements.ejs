@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="userAdApp" ng-controller="userAdCtrl">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Advertisements</title>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:500,300,700,400italic,400' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.css">
+    <link rel="stylesheet" href="/stylesheets/font-awesome.css">
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/mystyles.css">
+    <script src="/javascripts/angular.min.js"></script>
+    <script src="/angular/userads.js"></script>
+
+</head>
+<body   ng-init="loadUserAds();" style="background-color:#ededed ;">
+<div ng-include="'../header/header.ejs'"></div>
+<div class="gap"></div>
+<div class="container" id="userAddContainer">
+    <div class="col-md-4" style="padding-bottom: 20px" ng-repeat="ad in userAds">
+            <div class="product" >
+                <ul class="product-labels"></ul>
+                <div class="product-caption">
+                    <h5 class="product-banner-desc">{{ad.product_name}}</h5>
+                    <div class="product-page-desc">{{ad.description}}</div>
+                    <div class="product-page-desc">Quantity left:{{ad.quantity}}</div>
+                    <div class="product-caption-price"><span class="product-caption-price-new">Price : {{ad.price}} $</span>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+</div>
+
+</body>
+</html>

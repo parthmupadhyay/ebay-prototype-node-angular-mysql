@@ -1,0 +1,54 @@
+<html ng-app="orderHistoryApp" ng-controller="orderHistoryCtrl">
+<head>
+    <title>Order detail</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <meta name="keywords" content="Template, html, premium, themeforest" />
+    <meta name="description" content="TheBox - premium e-commerce template">
+    <meta name="author" content="Tsoy">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="javascripts/angular.min.js"></script>
+  <script src="angular/orderhistory.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:500,300,700,400italic,400' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/mystyles.css">
+
+</head>
+<body ng-init="loadOrders();">
+<div ng-include="'header/header.ejs'"></div>
+
+<div class="gap"></div>
+<div class="col-sm-3"></div>
+<div class="col-sm-6"  ng-hide="orderHistoryContainer">
+  <h2 align="center"><i class="fa fa-user color"></i> &nbsp;Order History</h2>
+  <table class="table product" ng-repeat="orderDetail in orderDetails" style="background-color: #f8f8f8;margin-bottom: 20px" >
+
+    <tbody ng-repeat="order in orderDetail" >
+    <tr>
+      <td colspan="2"><h3>{{order.product_name}}</h3><hr></td>
+        </tr>
+    <tr>
+        <td>Order #:</td>
+      <td>{{order.order_id}}</td>
+</tr>
+    <tr>
+        <td>Quantity:</td>
+      <td>{{order.quantity}}</td>
+        </tr>
+    <tr>
+        <td>Order Date:</td>
+        <td>{{order.order_date}}</td>
+    </tr>
+    <tr>
+        <td>Price:</td>
+      <td>{{order.quantity*order.price}}$</td>
+        </tr>
+    </tbody>
+
+  </table>
+</div>
+    </body>
+</html>

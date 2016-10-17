@@ -1,0 +1,78 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="stylesheets/login.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/javascripts/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+    <script src="angular/signup.js"></script>
+
+
+</head>
+<body>
+
+        <div class="panel panel-default">
+
+            <div class="panel-body">
+                <!-- tabs -->
+
+                <ul id="dTab" class="nav nav-tabs">
+                    <li class="active" ><a href="#/signup" data-toggle="tab" ><span class="glyphicon glyphicon-plus"></span>  Register</a></li>
+                    <li><a href="#/" data-toggle="tab"><span class="glyphicon glyphicon-circle-arrow-right"></span>  Login</a></li>
+                </ul>
+                <div id="pane1" class="tab-pane fade in active">
+                    <form>
+                        <fieldset>
+
+
+                            <div class="form-group">
+                                <!-- First Name-->
+                                <label class="control-label" for="firstName">First Name</label>
+                                <input type="text" ng-model="firstName" id="firstName" required name="firstName" placeholder="Enter First Name" class="form-control">
+                                <div class="alert alert-danger" ng-hide="firstNameValidate"><Strong>First name cannot be blank</Strong></div>
+                            </div>
+                            <div class="form-group">
+                                <!-- Last Name-->
+                                <label class="control-label" for="lastName">Last Name</label>
+                                <input type="text" required ng-model="lastName" id="lastName" name="lastName" placeholder="Enter Last Name" class="form-control">
+                                <div class="alert alert-danger" ng-hide="lastNameValidate"><Strong>Last name cannot be blank</Strong></div>
+                            </div>
+
+                            <div class="form-group">
+                                <!-- E-mail -->
+                                <label class="control-label" for="email">E-mail</label>
+                                <input type="text" required ng-change="checkEmail();" ng-model="email" id="email" name="email" placeholder="Please provide your E-mail" class="form-control">
+                                <div class="alert alert-danger" ng-hide="emailValidate"><Strong>Email cannot be blank</Strong></div>
+                                <div class="alert alert-danger" ng-hide="email_exists" >
+                                    <strong>Account for {{email}} already exists</strong>
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+                                <!-- Password-->
+                                <label class="control-label" for="password">Password</label>
+                                <input type="password" required ng-model="password" id="password" name="password" placeholder="Password should be at least 4 characters" class="form-control">
+                                <div class="alert alert-danger" ng-hide="passwordValidate"><Strong>Password cannot be blank</Strong></div>
+                            </div>
+
+                            <div class="form-group">
+                                <!-- RePassword -->
+                                <label class="control-label"  for="password_confirm">Password (Confirm)</label>
+                                <input type="password" ng-model="repassword" ng-blur="matchPassword();" id="password_confirm" name="password_confirm" placeholder="Please confirm password" class="form-control">
+                                <div class="alert alert-danger" ng-hide="rePasswordValidate"><Strong>Password cannot be blank</Strong></div>
+                                <div class="alert alert-danger" ng-hide="password_mismatch" >
+                                    <strong>Password not matching, re enter</strong>
+                                </div>
+                            </div><!--<a href="#/add">-->
+                            <button class="btn btn-success" ng-click="saveSignUpData();checkFormData();"  type="button">Register</button><!--</a>-->
+
+
+
+                        </fieldset>
+                    </form>
+                </div>
+                </div>
+            </div>
+</body>

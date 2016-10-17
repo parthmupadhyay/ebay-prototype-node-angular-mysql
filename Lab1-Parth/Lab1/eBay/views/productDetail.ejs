@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="productDetailApp" ng-controller="productDetailCtrl">
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:500,300,700,400italic,400' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.css">
+    <link rel="stylesheet" href="/stylesheets/font-awesome.css">
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/mystyles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/javascripts/angular.min.js"></script>
+    <script src="/angular/productDetail.js"></script>
+
+</head>
+    <body >
+
+    <div ng-include="'header/header.ejs'"></div>
+    <div class="gap"></div>
+    <div class="row">
+    <div class="col-md-2"></div>
+        <script>
+            function initiateCartModal()
+            {
+                document.getElementById('cartModalB').click();
+                console.log("in initiate click");
+            }</script>
+        <div class="modaltest" >
+            <button type="button" style="display:none;" class="btn btn-info btn-lg" data-toggle="modal" id="cartModalB" data-target="#myModal"></button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Added to cart</h4>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="/product"> <button type="button" class="btn btn-default">Continue Shopping</button></a>
+                            <a href="/cart"><button type="button" class="btn btn-default" >Cart</button></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function initiateBidModal()
+            {
+                document.getElementById('BidModalB').click();
+                console.log("in initiate click");
+            }</script>
+        <div class="modaltest" >
+            <button type="button" style="display:none;" class="btn btn-info btn-lg" data-toggle="modal" id="BidModalB" data-target="#myModalforBid"></button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModalforBid" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Bid Successful</h4>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="/product"> <button type="button" class="btn btn-default">Continue Shopping</button></a>
+                            <a href="#"><button type="button" class="btn btn-default" >Bids</button></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    <div class="col-md-8">
+
+        <div align="center" class="product" style="background-color: #ededed;margin-bottom: 20px">
+            <h3 ng-model="product_name"ng-init="product_name='<%=productDetail[0].product_name%>'"><%=productDetail[0].product_name%></h3>
+            <input type="hidden" ng-model="product_id" ng-init="product_id=<%=productDetail[0].product_id%>">
+           <input type="hidden" ng-model="seller_id" ng-init="seller_id=<%=productDetail[0].seller_id%>">
+
+<table class="table">
+    <tr>
+        <td align="center"><img src="/images/product-2.png" height="220px" width="280px"> </td>
+        <td>
+
+            <table class="table product" align="center" style="background-color: #f8f8f8">
+                <tr>
+                    <td>Description:</td>
+                    <td><%=productDetail[0].description%></td>
+                </tr>
+                <tr>
+                    <td>Seller:</td>
+                    <td><a href="/profile?id=<%=productDetail[0].username%>"><u><%=productDetail[0].username%></u></a></td>
+                </tr>
+                <tr>
+                    <td>Shipping Location:</td>
+                    <td><%=productDetail[0].address%></td>
+                </tr>
+
+                <tr>
+                    <td>Quantity:</td>
+                    <td><input style="width: 35px" type="text"  id="qtytext" ng-model="quantity" onchange="checkQty()" ng-init="quantity=1"/><%=productDetail[0].quantity%> available
+                        <p style="color: red;font-size: small;" id="qtycheck"></p>
+                    </td>
+                    <script>
+                        function checkQty()
+                        {
+                            var qty=document.getElementById("qtytext").value;
+                            var availbleQty="<%=productDetail[0].quantity%>";
+                            if(qty>Number(availbleQty))
+                            {
+                                document.getElementById("qtycheck").innerHTML="Please enter a quantity of " +availbleQty+" or less";
+                            }
+                            else if(qty==0)
+                            {
+                                document.getElementById("qtycheck").innerHTML="Please enter quantity of 1 or more";
+                            }
+                            else
+                            {
+                                document.getElementById("qtycheck").innerHTML="";
+                            }
+                        }
+                    </script>
+
+
+                </tr>
+
+                <tr class="payment-details" ng-show="<%=productDetail[0].isBidProduct==0%>">
+
+                    <td>Price:</td>
+                    <td>
+                        <p style="font-weight:700;font-size: 18px" ng-model="price" ng-init="price=<%=productDetail[0].price%>">US$<%=productDetail[0].price%></p><br>
+                        <!--<button class="buybtn">Buy It Now</button>-->
+                        <button class="buybtn addcart" ng-click="addToCart();">Add To Cart</button>
+                    </td>
+                </tr>
+                <tr class="bidding-details" ng-show="<%=productDetail[0].isBidProduct==1%>">
+
+                    <td>Current Price:</td>
+                    <td>
+                        <p style="font-weight:700;font-size: 18px" ng-model="price" ng-init="price=<%=productDetail[0].price%>">US$<%=productDetail[0].price%></p><br>
+                        <!--<button class="buybtn">Buy It Now</button>-->
+                    </td>
+                </tr>
+                <tr class="bidding-details2" ng-show="<%=productDetail[0].isBidProduct==1%>">
+
+                    <td>Bid Amount</td>
+                    <td><% var min_price=productDetail[0].price +1; %>
+                        <input type="number" ng-model="bidAmount"  ng-init="bidAmount=<%=productDetail[0].price%>+1" min="<%=min_price%>">
+                        <button class="buybtn bidnow" ng-click="bidnow();">Bid Now</button>
+                        <!--<button class="buybtn">Buy It Now</button>-->
+                    </td>
+                </tr>
+
+            </table>
+</td>
+    </tr>
+    </table>
+
+
+        </div>
+    </div>
+</div>
+    </body>
+    </html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Details</title>
+
+        <link rel="stylesheet" type="text/css" href="stylesheets/login.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="/javascripts/angular.min.js"></script>
+<body>
+<form action="/registerUser" method="post">
+    <fieldset>
+        <input type="hidden"  ng-model="formdata" class="formdata" name="formdata" id="formdata" value="{{formdata}}"></input>
+        <div class="form-group">
+            <!-- user name-->
+            <label class="control-label"  for="username">Username/eBayHandle</label>
+            <input type="text" required ng-change="checkUserName();" ng-model="username"  id="username" name="username" placeholder="Username can contain any letters or numbers" class="form-control">
+            <div class="alert alert-danger" ng-hide="username_exists" >
+                <strong> {{username}} already exists, please choose a different username</strong>
+            </div>
+            <div class="alert alert-success" ng-hide="username_available">
+                <strong>Great! {{username}} is available</strong>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <!-- Contact No-->
+            <label class="control-label" for="contactNo">Contact Number</label>
+            <input type="text" required ng-model="contactNo" id="contactNo" name="contactNo" placeholder="Enter cellphone/landline number" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <!-- Address-->
+            <label class="control-label" for="contactNo">Address</label>
+            <textarea required ng-model="address" id="address" name="address" placeholder="Enter Address" class="form-control"></textarea>
+        </div>
+
+        <div class="form-group">
+            <!-- birthdate-->
+            <label class="control-label" for="birthdate">Enter Date of birth</label>
+            <input type="text" required ng-model="birthdate" id="birthdate" name="birthdate" placeholder="YYYY-MM-DD" class="form-control">
+        </div>
+
+
+
+
+
+        <button class="btn btn-success">Register</button>
+    </fieldset>
+</form>
+</body>
+</html>

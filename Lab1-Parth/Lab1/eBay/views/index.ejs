@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="signApp">
+<head>
+    <meta charset="UTF-8">
+    <title>eBay</title>
+            <link rel="stylesheet" type="text/css" href="stylesheets/login.css">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            <script src="/javascripts/angular.min.js"></script>
+            <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+            <script src="angular/signup.js"></script>
+
+
+        </head>
+        <div class="col-xs-12" style="height:50px;" ng-controller="signCtrl">
+
+            <img class="center-block" src="images/ebay-logo.jpg" />
+            <div class="cover-container">
+                <div class="masthead clearfix">
+                    <div class="inner">
+                        <h3 class="masthead-brand"></h3>
+                        <ul class="nav masthead-nav">
+                            <!--<li class="active"><a href="#">Home</a></li>
+                            <li><a href="#">Features</a></li>
+                            <li><a href="#">Contact</a></li>-->
+                        </ul>
+                    </div>
+                </div>
+                <h4 align="center"><%= title%></h4>
+                <div class="inner cover" ng-view>
+                </div>
+
+
+
+            </div>
+        </div>
+<body>
+
+</body>
+</html>

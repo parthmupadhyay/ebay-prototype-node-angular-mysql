@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script
+            src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <script src="/angularjs/calc.js"></script>
+</head>
+<body ng-app="calcApp" ng-controller="calcCtrl">
+<div class="col-sm-3"></div>
+<div class="col-sm-5">
+    <div class="panel">
+        <div class="panel-heading" align="center"><h2>Calculator</h2></div>
+        <div class="panel-body">
+            <table>
+                <tr align="center">
+                    <td class="col-sm-3">Enter Number1</td>
+                    <td class="col-sm-3"><input type="text" id="number1" ng-model="num1"></td>
+                </tr>
+                <tr align="center">
+                    <td class="col-sm-3">Enter Number2</td>
+                    <td class="col-sm-3"><input type="text" id="number2" ng-model="num2"></td>
+                </tr>
+                <tr align="center">
+                    <td class="col-sm-3"><button class="btn" value="add" ng-model="add" ng-click="calculate($event)">Add</button></td>
+                    <td class="col-sm-3"><button class="btn" value="multiply" ng-model="multiply" ng-click="calculate($event)">Multiply</button></td>
+                </tr>
+                <tr align="center">
+                    <td class="col-sm-3"><button class="btn" value="subtract" ng-model="subtract" ng-click="calculate($event)">Subtract</button></td>
+                    <td class="col-sm-3"><button class="btn" value="divide" ng-model="divide" ng-click="calculate($event)">Divide</button></td>
+                </tr>
+                <tr align="center">
+                    <td class="col-sm-3">Result:</td>
+                    <td class="col-sm-3"><input type="text" ng-model="result" readonly id="result"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

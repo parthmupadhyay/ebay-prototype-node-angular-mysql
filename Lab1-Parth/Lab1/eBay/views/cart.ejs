@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="cartApp" ng-controller="cartCtrl">
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:500,300,700,400italic,400' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.css">
+    <link rel="stylesheet" href="/stylesheets/font-awesome.css">
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/mystyles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/javascripts/angular.min.js"></script>
+    <script src="/angular/cart.js"></script>
+</head>
+<body ng-init="loadCart();">
+
+<div ng-include="'header/header.ejs'"></div>
+<div class="gap"></div>
+<div class="col-sm-1"></div>
+<div class="cartdetail" ng-hide="avcart">
+<div class="col-sm-6 product" style="background-color:#f8f8f8;margin-bottom: 20px;" id="cart" >
+    <h3 align="center">Products</h3>
+    <hr>
+    <table class="table table table-shopping-cart product" style="background-color: #ededed">
+        <thead>
+        <tr >
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+            <th>Seller</th>
+            <th>Remove</th>
+        </tr>
+        </thead>
+        <tbody>
+        <div>
+
+            <tr ng-repeat="item in cartData">
+                <td>{{item.product_name}}
+                </td>
+                <td>${{item.price}}</td>
+                <td>
+                    <input type="number" ng-value="{{item.quantity}}" ng-model="qty" ng-change="updateQuantity($index,item.quantity,qty,item.prodQuantity);" min="1" max="{{item.prodQuantity}}">
+                </td>
+                <td>{{item.price*item.quantity}}</td>
+                <td><a href="/profile?id={{item.username}}">{{item.username}}</a></td>
+                <td>
+                    <a class="fa fa-close table-shopping-remove" href="#"  ng-click="removeFromCart(item.cart_id,$index);"></a>
+                </td>
+            </tr>
+        </div>
+        </tbody>
+    </table>
+
+</div>
+<div class="col-sm-3 product" id="summary" style="margin-left: 20px;background-color: #f8f8f8">
+    <h3 align="center">Cart Summary({{cartData.length}} items)</h3>
+    <hr>
+    <h4>Total : {{total}}</h4>
+    <div align="center">
+        <a href="/checkout"><button  class="buybtn" ng-click="updateCart();" type="button">Check Out</button></a>
+    </div>
+</div></div>
+<div class="container"  align="center" ng-hide="emptycart">
+    <img src="/images/empty-cart.jpg">
+</div>
+
+</body>
+
+</html>

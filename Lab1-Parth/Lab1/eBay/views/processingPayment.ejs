@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="processPaymentApp" ng-controller="processPaymentCtrl">
+<head>
+    <meta charset="UTF-8">
+    <title>Processing Payment</title>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:500,300,700,400italic,400' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.css">
+    <link rel="stylesheet" href="/stylesheets/font-awesome.css">
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/mystyles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/javascripts/angular.min.js"></script>
+    <script src="/angular/processPayment.js"></script>
+</head>
+<body ng-init="getCartData();">
+
+<div ng-include="'header/header.ejs'"></div>
+<div class="gap"></div>
+<div class="container" ng-hide="process">
+    <img src="/images/processing.gif">
+</div>
+<div class="container" ng-hide="placed">
+    <h2>Congratulations! Your order has been successfully placed</h2>
+</div>
+</body>
+</html>

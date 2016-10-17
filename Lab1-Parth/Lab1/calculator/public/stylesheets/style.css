@@ -1,0 +1,38 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.btn
+{
+  width:100px;
+  background-color: brown;
+  color: white;
+}
+
+.col-sm-3
+{
+  padding: 15px;
+}
+
+.panel-heading
+{
+  background-color: brown;
+  color: white;
+}
+.panel-body
+{
+  color:brown;
+}
+
+.panel-body
+{
+  border-bottom-color: brown;
+  border-left-color: brown;
+  border-right-color: brown;
+  border: solid;
+}
